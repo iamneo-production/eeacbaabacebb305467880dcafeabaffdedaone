@@ -63,6 +63,7 @@ public class dbankApplication extends Base {
             log.info("Sent Password");
             signInPage.clickSubmitButton();
             log.info("Clicked Submit Button");
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
