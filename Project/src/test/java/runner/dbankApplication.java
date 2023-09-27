@@ -44,7 +44,6 @@ public class dbankApplication extends Base {
         homePage = new HomePage(driver);
         depositPage = new DepositPage(driver);
         withdrawPage = new WithdrawPage(driver);
-
     }
 
     @Test(priority = 1)
