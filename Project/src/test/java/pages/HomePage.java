@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+import uistore.DepositPageUi;
 import uistore.HomePageUi;
 import uistore.SignInPageUi;
 import utils.WebDriverHelper;
@@ -14,19 +15,11 @@ public class HomePage {
         helper = new WebDriverHelper(driver);
     }
 
-    public void clickDepositLink() throws Exception{
+    public void clickDepositLinkText() throws Exception{
         helper.clickElement(HomePageUi.depositLinkText);
     }
 
-    public void selectDepositDropDown(){
-
-    }
-
-    public void sendDepositAmount(){
-
-    }
-
-    public void 
+   
 
     
 
