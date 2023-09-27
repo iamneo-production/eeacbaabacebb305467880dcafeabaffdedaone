@@ -1,11 +1,17 @@
 utils/WebDriverHelper.class
 utils/ReadPropertyFile.class
+uistore/DepositPageUi.class
 utils/Base.class
 utils/EventHandler.class
 uistore/SignInPageUi.class
+pages/HomePage.class
+pages/WithdrawPage.class
 utils/Screenshot.class
+uistore/WithdrawPageUi.class
 utils/LoggerHandler.class
 utils/ExcelReader.class
+pages/DepositPage.class
 utils/Reporter.class
 runner/dbankApplication.class
+uistore/HomePageUi.class
 pages/SignInPage.class

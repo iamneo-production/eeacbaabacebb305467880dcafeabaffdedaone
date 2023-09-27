@@ -11,6 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -100,8 +101,8 @@ public class dbankApplication extends Base {
     }
 
     @Test(priority = 3)
-    public void verifyWithdraw(){
-ExtentTest test = extentReport.createTest("Home Page - Withdraw", "Verify Withdraw feature");
+    public void verifyWithdraw() throws IOException {
+        ExtentTest test = extentReport.createTest("Home Page - Withdraw", "Verify Withdraw feature");
         try {
             signInPage.sendUserName("S@gmail.com");
             log.info("Sent User Name");
@@ -110,17 +111,18 @@ ExtentTest test = extentReport.createTest("Home Page - Withdraw", "Verify Withdr
             signInPage.clickSubmitButton();
             log.info("Clicked Submit Button");
 
-            homePage.clickWithdrawLinkText();;
+            homePage.clickWithdrawLinkText();
+            ;
             log.info("Clicked Withdraw link text clicked");
 
-            depositPage.selectItemFromDepositDropDown();
-            log.info("Selected Item from Deop Down List");
+            withdrawPage.selectItemFromDepositDropDown();
+            log.info("Selected Item from Drop Down List");
 
-            depositPage.sendDepositAmount(null);
-            log.info("Sent deposit amount text");
-            depositPage.clickSubmitButton();
+            withdrawPage.sendWithdrawAmount(null);
+            log.info("Sent Withdraw amount text");
+            withdrawPage.clickSubmitButton();
             log.info("Clicked Submit");
-            test.pass("Sign In Verified Successfully");
+            test.pass("Withdraw Verified Successfully");
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -131,6 +133,10 @@ ExtentTest test = extentReport.createTest("Home Page - Withdraw", "Verify Withdr
         }
     }
 
+    // @DataProvider
+    // public Object[][] readTestData(){
+
+    // }
     @AfterMethod
     public void end() {
         driver.quit();
