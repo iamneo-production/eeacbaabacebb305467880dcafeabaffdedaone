@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,17 +20,14 @@ public class DepositPage {
     public void selectItemFromDepositDropDown() throws Exception {
         Actions action = new Actions(driver);
         WebElement element = driver.findElement(DepositPageUi.depositAccountDropDown);
-        action.moveToElement(element).click();
+        action.moveToElement(element).click().sendKeys(Keys.DOWN).sendKeys(Keys.RETURN).perform();
     }
 
-    public void selectItemFromDropDown(){
-        
-    }
-    public void sendDepositAmount() {
-
+    public void sendDepositAmount(String amount) throws Exception {
+        helper.fillForm(DepositPageUi.depositAmount, amount);
     }
 
-    public void clickSubmitButton() {
-
+    public void clickSubmitButton() throws Exception {
+        helper.clickElement(DepositPageUi.submitButton);
     }
 }

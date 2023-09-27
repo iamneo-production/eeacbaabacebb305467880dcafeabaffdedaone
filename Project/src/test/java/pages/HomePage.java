@@ -8,19 +8,16 @@ import uistore.SignInPageUi;
 import utils.WebDriverHelper;
 
 public class HomePage {
-     private WebDriver driver;
+    private WebDriver driver;
     private WebDriverHelper helper;
-    public HomePage(WebDriver driver){
+
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         helper = new WebDriverHelper(driver);
     }
 
-    public void clickDepositLinkText() throws Exception{
+    public void clickDepositLinkText() throws Exception {
         helper.clickElement(HomePageUi.depositLinkText);
     }
-
-   
-
-    
 
 }

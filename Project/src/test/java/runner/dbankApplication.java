@@ -27,11 +27,13 @@ public class dbankApplication extends Base {
     Logger log = LoggerHandler.getLogger();
     ExtentReports extentReport = Reporter.generateExtentReport();
     private SignInPage signInPage;
+    private HomePage 
 
     @BeforeMethod
     public void startUp() throws MalformedURLException {
         driver = openBrowser();
         signInPage = new SignInPage(driver);
+
     }
 
     @Test(priority = 1)
@@ -63,7 +65,8 @@ public class dbankApplication extends Base {
             log.info("Sent Password");
             signInPage.clickSubmitButton();
             log.info("Clicked Submit Button");
-            
+
+
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
