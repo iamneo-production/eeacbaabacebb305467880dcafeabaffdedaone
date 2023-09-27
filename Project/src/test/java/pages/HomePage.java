@@ -1,5 +1,7 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +25,7 @@ public class HomePage {
     public void clickDepositLinkText() throws Exception {
         Duration timeout = Duration.ofSeconds(10);
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        WebElement depositLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Deposit")));
+        wait.until(ExpectedConditions.elementToBeClickable(HomePageUi.depositLinkText));
         helper.clickElement(HomePageUi.depositLinkText);
     }
 

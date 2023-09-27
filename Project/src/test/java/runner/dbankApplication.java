@@ -77,14 +77,19 @@ public class dbankApplication extends Base {
             homePage.clickDepositLinkText();
             log.info("Clicked Deposit link text clicked");
 
-            Duration timeout = Duration.ofSeconds(10);
-            WebDriverWait wait = new WebDriverWait(driver,timeout);
-            
+            depositPage.selectItemFromDepositDropDown();
+            log.info("Selected Item from Deop Down List");
+
+            depositPage.sendDepositAmount(null);
+            log.info("Sent deposit amount text");
+            depositPage.clickSubmitButton();
+            log.info("Clicked Submit");
+            test.pass("Sign In Verified Successfully");
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            e.printStackTrace();
+
             Screenshot.getScreenShot(driver, "Deposit");
             test.log(Status.FAIL, "Deposit Failed");
         }
