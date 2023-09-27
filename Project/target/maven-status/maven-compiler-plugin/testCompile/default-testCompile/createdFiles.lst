@@ -1,11 +1,11 @@
 utils/WebDriverHelper.class
 utils/ReadPropertyFile.class
-utils/ExcelReader.class
 utils/Base.class
 utils/EventHandler.class
 uistore/SignInPageUi.class
+utils/Screenshot.class
+utils/LoggerHandler.class
+utils/ExcelReader.class
 utils/Reporter.class
 runner/dbankApplication.class
-utils/Screenshot.class
 pages/SignInPage.class
-utils/LoggerHandler.class

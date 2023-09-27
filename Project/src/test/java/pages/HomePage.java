@@ -29,4 +29,10 @@ public class HomePage {
         helper.clickElement(HomePageUi.depositLinkText);
     }
 
+    public void clickWithdrawLinkText() throws Exception {
+        Duration timeout = Duration.ofSeconds(10);
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.elementToBeClickable(HomePageUi.withdrawLinkText));
+        helper.clickElement(HomePageUi.withdrawLinkText);
+    }
 }

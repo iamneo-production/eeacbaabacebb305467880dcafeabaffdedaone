@@ -96,6 +96,11 @@ public class dbankApplication extends Base {
 
     }
 
+    @Test(priority = 3)
+    public void verifyWithdraw(){
+        
+    }
+
     @AfterMethod
     public void end() {
         driver.quit();
