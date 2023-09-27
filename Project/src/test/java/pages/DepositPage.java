@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import uistore.DepositPageUi;
 import utils.WebDriverHelper;
@@ -14,11 +15,15 @@ public class DepositPage {
         helper = new WebDriverHelper(driver);
     }
 
-    public void clickDepositDropDown() throws Exception {
+    public void selectItemFromDepositDropDown() throws Exception {
         helper.clickElement(DepositPageUi.depositAccountDropDown);
+        Actions action = new Actions(driver);
+        
     }
 
-    public selectDropDown
+    public void selectItemFromDropDown(){
+        
+    }
     public void sendDepositAmount() {
 
     }
