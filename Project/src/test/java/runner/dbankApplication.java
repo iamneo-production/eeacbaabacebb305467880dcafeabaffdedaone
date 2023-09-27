@@ -2,9 +2,11 @@ package runner;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -17,6 +19,8 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentReporter;
 
+import pages.DepositPage;
+import pages.HomePage;
 import pages.SignInPage;
 import utils.Base;
 import utils.LoggerHandler;
@@ -27,12 +31,15 @@ public class dbankApplication extends Base {
     Logger log = LoggerHandler.getLogger();
     ExtentReports extentReport = Reporter.generateExtentReport();
     private SignInPage signInPage;
-    private HomePage 
+    private HomePage homePage;
+    private DepositPage depositPage;
 
     @BeforeMethod
     public void startUp() throws MalformedURLException {
         driver = openBrowser();
         signInPage = new SignInPage(driver);
+        homePage = new HomePage(driver);
+        depositPage = new DepositPage(driver);
 
     }
 
@@ -55,28 +62,34 @@ public class dbankApplication extends Base {
         }
 
     }
-    @Test(priority=2)
-    public void verifyDeposit() throws IOException{
+
+    @Test(priority = 2)
+    public void verifyDeposit() throws IOException {
         ExtentTest test = extentReport.createTest("Home Page", "Verify Deposit feature");
         try {
             signInPage.sendUserName("S@gmail.com");
-             log.info("Sent User Name");
+            log.info("Sent User Name");
             signInPage.sendPassword("P@ssword12");
             log.info("Sent Password");
             signInPage.clickSubmitButton();
             log.info("Clicked Submit Button");
 
+            homePage.clickDepositLinkText();
+            log.info("Clicked Deposit link text clicked");
+
+            Duration timeout = Duration.ofSeconds(10);
+            WebDriverWait wait = new WebDriverWait(driver,timeout);
+            
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-             e.printStackTrace();
+            e.printStackTrace();
             Screenshot.getScreenShot(driver, "Deposit");
             test.log(Status.FAIL, "Deposit Failed");
         }
-           
-    }
 
+    }
 
     @AfterMethod
     public void end() {
