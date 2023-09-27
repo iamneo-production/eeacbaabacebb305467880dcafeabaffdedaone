@@ -53,7 +53,26 @@ public class dbankApplication extends Base {
         }
 
     }
-    @
+    @Test(priority=2)
+    public void verifyDeposit() throws IOException{
+        ExtentTest test = extentReport.createTest("Home Page", "Verify Deposit feature");
+        try {
+            signInPage.sendUserName("S@gmail.com");
+             log.info("Sent User Name");
+            signInPage.sendPassword("P@ssword12");
+            log.info("Sent Password");
+            signInPage.clickSubmitButton();
+            log.info("Clicked Submit Button");
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+             e.printStackTrace();
+            Screenshot.getScreenShot(driver, "Deposit");
+            test.log(Status.FAIL, "Deposit Failed");
+        }
+           
+    }
+
 
     @AfterMethod
     public void end() {
