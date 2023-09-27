@@ -22,6 +22,7 @@ import com.aventstack.extentreports.reporter.ExtentReporter;
 import pages.DepositPage;
 import pages.HomePage;
 import pages.SignInPage;
+import pages.WithdrawPage;
 import utils.Base;
 import utils.LoggerHandler;
 import utils.Reporter;
@@ -33,6 +34,7 @@ public class dbankApplication extends Base {
     private SignInPage signInPage;
     private HomePage homePage;
     private DepositPage depositPage;
+    private WithdrawPage withdrawPage;
 
     @BeforeMethod
     public void startUp() throws MalformedURLException {
@@ -40,6 +42,7 @@ public class dbankApplication extends Base {
         signInPage = new SignInPage(driver);
         homePage = new HomePage(driver);
         depositPage = new DepositPage(driver);
+        withdrawPage = new WithdrawPage(driver);
 
     }
 
@@ -65,7 +68,7 @@ public class dbankApplication extends Base {
 
     @Test(priority = 2)
     public void verifyDeposit() throws IOException {
-        ExtentTest test = extentReport.createTest("Home Page", "Verify Deposit feature");
+        ExtentTest test = extentReport.createTest("Home Page - Deposit", "Verify Deposit feature");
         try {
             signInPage.sendUserName("S@gmail.com");
             log.info("Sent User Name");
@@ -98,7 +101,34 @@ public class dbankApplication extends Base {
 
     @Test(priority = 3)
     public void verifyWithdraw(){
-        
+ExtentTest test = extentReport.createTest("Home Page - Withdraw", "Verify Withdraw feature");
+        try {
+            signInPage.sendUserName("S@gmail.com");
+            log.info("Sent User Name");
+            signInPage.sendPassword("P@ssword12");
+            log.info("Sent Password");
+            signInPage.clickSubmitButton();
+            log.info("Clicked Submit Button");
+
+            homePage.clickWithdrawLinkText();;
+            log.info("Clicked Withdraw link text clicked");
+
+            depositPage.selectItemFromDepositDropDown();
+            log.info("Selected Item from Deop Down List");
+
+            depositPage.sendDepositAmount(null);
+            log.info("Sent deposit amount text");
+            depositPage.clickSubmitButton();
+            log.info("Clicked Submit");
+            test.pass("Sign In Verified Successfully");
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+
+            Screenshot.getScreenShot(driver, "Deposit");
+            test.log(Status.FAIL, "Deposit Failed");
+        }
     }
 
     @AfterMethod
