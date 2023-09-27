@@ -32,9 +32,12 @@ public class dbankApplication extends Base {
     @Test(priority = 1)
     public void verifySignIn() throws Exception {
         ExtentTest test = extentReport.createTest("Registration Page", "Verify Sign In feature");
-        signInPage.sendUserName(null);
-        signInPage.sendPassword(null);
+        signInPage.sendUserName("S@gmail.com");
+        log.info("Sent User Name");
+        signInPage.sendPassword("P@ssword12");
+        log.info("Sent Password");
         signInPage.clickSubmitButton();
+        log.info("Clicked Submit Button");
     }
 
     @AfterTest
