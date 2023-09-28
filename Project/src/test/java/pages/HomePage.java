@@ -2,15 +2,12 @@ package pages;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import uistore.DepositPageUi;
 import uistore.HomePageUi;
-import uistore.SignInPageUi;
 import utils.WebDriverHelper;
 
 public class HomePage {

@@ -20,12 +20,12 @@ public class WithdrawPage {
 
     public void selectItemFromDepositDropDown() throws Exception {
         Actions action = new Actions(driver);
-        WebElement element = driver.findElement(WithdrawPageUi.depositAccountDropDown);
+        WebElement element = driver.findElement(WithdrawPageUi.withdrawAccountDropDown);
         action.moveToElement(element).click().sendKeys(Keys.DOWN).sendKeys(Keys.RETURN).perform();
     }
 
     public void sendWithdrawAmount(String amount) throws Exception {
-        helper.fillForm(WithdrawPageUi.depositAmount, amount);
+        helper.fillForm(WithdrawPageUi.withdrawAmount, amount);
     }
 
     public void clickSubmitButton() throws Exception {
