@@ -1,8 +1,8 @@
 utils/WebDriverHelper.class
 utils/ReadPropertyFile.class
 uistore/DepositPageUi.class
-utils/EventHandler.class
 utils/Base.class
+utils/EventHandler.class
 uistore/SignInPageUi.class
 pages/HomePage.class
 pages/WithdrawPage.class
